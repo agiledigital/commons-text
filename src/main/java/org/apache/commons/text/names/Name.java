@@ -121,4 +121,12 @@ public final class Name {
     public int hashCode() {
         return Objects.hash(leadingInitial, firstName, nickName, middleName, lastName, suffix);
     }
+
+	@Override
+	public String toString() {
+		return "Name [leadingInitial=" + leadingInitial + ", salutation="
+				+ salutation + ", firstName=" + firstName + ", nickName="
+				+ nickName + ", middleName=" + middleName + ", lastName="
+				+ lastName + ", suffix=" + suffix + "]";
+	}
 }

@@ -25,7 +25,7 @@
     <version>41</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>commons-text</artifactId>
+  <artifactId>commons-text-agile</artifactId>
   <version>0.1-SNAPSHOT</version>
   <name>Apache Commons Text</name>
 

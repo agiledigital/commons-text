@@ -143,7 +143,7 @@ public class HumanNameParser {
         // but you can select a particular parenthesized submatch to be returned.
         // Also, note that each regex requres that the preceding ones have been run, and matches chopped out.
         // names that starts or end w/ an apostrophe break this
-        String salutationRegex = "^(?i)(("+salutations+")\\.)";
+        String salutationRegex = "^(?i)(("+salutations+")\\.*)";
         String nicknamesRegex = "(?i) ('|\\\"|\\(\\\"*'*)(.+?)('|\\\"|\\\"*'*\\)) ";
         String suffixRegex = "(?i),* *((" + suffixes + ")$)";
         String lastRegex = "(?i)(?!^)\\b([^ ]+ y |" + prefixes + ")*[^ ]+$";
