@@ -33,3 +33,4 @@ O'Malley y Muñoz, C. Björn Roger III||C.|Björn||Roger|O'Malley y Muñoz|III
 Dr. Gaius Baltar|Dr.||Gaius|||Baltar|
 Dr Gaius Baltar|Dr||Gaius|||Baltar|
 Mr B.J. Thomas|Mr||B.J.|||Thomas|
+Mr. B.J. Thomas|Mr.||B.J.|||Thomas|

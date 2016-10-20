@@ -110,16 +110,16 @@ public class HumanNameParser {
     public HumanNameParser() {
         // TODO make this configurable
         this.salutations = Arrays.asList(
-                "mr",  "mrs", "ms", "miss", "dr"
+                "mr\\.?", "mrs\\.?", "ms\\.?", "miss\\.?", "dr\\.?"
         );
         this.suffixes = Arrays.asList(
                 "esq", "esquire", "jr",
                 "sr", "2", "ii", "iii", "iv");
         this.prefixes = Arrays.asList(
-                    "bar", "ben", "bin", "da", "dal",
-                    "de la", "de", "del", "der", "di", "ibn", "la", "le",
-                    "san", "st", "ste", "van", "van der", "van den", "vel",
-                    "von" );
+                "bar", "ben", "bin", "da", "dal",
+                "de la", "de", "del", "der", "di", "ibn", "la", "le",
+                "san", "st", "ste", "van", "van der", "van den", "vel",
+                "von" );
     }
 
     /**
@@ -135,7 +135,7 @@ public class HumanNameParser {
 
         NameString nameString = new NameString(name);
         // TODO compile regexes only once when the parser is created
-        String salutations = StringUtils.join(this.salutations, " |") + "";
+        String salutations = StringUtils.join(this.salutations, " |") + " ";
         String suffixes = StringUtils.join(this.suffixes, "\\.*|") + "\\.*";
         String prefixes = StringUtils.join(this.prefixes, " |") + " ";
 
@@ -143,7 +143,7 @@ public class HumanNameParser {
         // but you can select a particular parenthesized submatch to be returned.
         // Also, note that each regex requres that the preceding ones have been run, and matches chopped out.
         // names that starts or end w/ an apostrophe break this
-        String salutationRegex = "^(?i)(("+salutations+")\\.*)";
+        String salutationRegex = "^(?i)(("+salutations+") *)";
         String nicknamesRegex = "(?i) ('|\\\"|\\(\\\"*'*)(.+?)('|\\\"|\\\"*'*\\)) ";
         String suffixRegex = "(?i),* *((" + suffixes + ")$)";
         String lastRegex = "(?i)(?!^)\\b([^ ]+ y |" + prefixes + ")*[^ ]+$";
@@ -180,4 +180,8 @@ public class HumanNameParser {
         return new Name(leadingInit, salutation, first, nickname, middle, last, suffix);
     }
 
+   public static void main(String[] args) {
+	   Name parse = new HumanNameParser().parse("Dr. Gaius Baltar");
+	   System.out.println(parse);
+   }
 }
